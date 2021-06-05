@@ -1,15 +1,5 @@
 # SISTEMPAKAR
-PHP VERSION 7,
-CI 3.1.7,
-HTML5,CSS3
-,JQUERY
-,JAVASCRIPT
+PHP VERSION 7, CI 3.1.7, HTML5, CSS3, JQUERY, JAVASCRIPT, AdminLTE2, Bootstrap
 
-
-APLIKASI SISTEM PAKAR MENGGUNAKAN METODE BACKWARD CHAINING UNTUK MENDIAGNOSA PENYAKIT KUCING
+EXPERT SYSTEM APPLICATION USING FORWARD CHAINING METHOD TO DIAGNOSE SHEEP DISEASE
 --------------------------------------------------------------------------------------------
-
-instalasi 
-ketik di terminal dengan composer install didalam directory 
-install database
-pada bagian aplikasi/config/ ganti base url dengan url http://localhost/diagnosaKucing
