@@ -160,14 +160,12 @@ Author URL: http://w3layouts.com
         <div class="container pb-md-5 pb-sm-4">
             <div class="row">
                 <div class="col-lg-6 left-wthree-img mt-lg-0 mt-5 order-lg-first order-last">
-                    <img class="img-fluid img-responsive" src="<?php echo base_url(); ?>assets/img/sheep_doctor_160x160.jpg" alt=" ">
+                    <img class="img-fluid img-responsive" src="<?php echo base_url(); ?>assets/img/doktorpandu-copy.jpeg" alt="doktorpandu">
                 </div>
                 <div class="col-lg-6 about-right-faq align-self pl-lg-5 mt-xl-4 order-lg-last order-first">
                     <h3 class="text-bgs mb-md-3 mb-2">Pakar <span>Terpercaya</span></h3>
                     <h3 class="title-style"><span>drh.</span> Pandu Tokoh Amukti</h3>
-                    <p class="ab-text mt-4 pt-lg-2">"Orem ipsum viverra feugiat. Pellen tesque libero ut justo,
-                        ultrices in ligula. Semper at tempufddfel. Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit. Non quae, fugiat".</p>
+                    <p class="ab-text mt-4 pt-lg-2">"Memelihara domba adalah hal yang gampang-gampang-susah sekaligus susah-susah-gampang, dengan adanya aplikasi ini semakin memudahkan para pelaku usaha peternakan domba lebih open minded terhadap kesehatan ternak. Semoga bermanfaat."</p>
                     <p class="mt-4">Seorang dokter hewan yang beralamat di Perumahan Tamansari Indah Jl. Cendana 7 RT 15/06, Tamansari, Bondowoso. Saat ini bekerja sebagai dokter hewan di Puskesmas Hewan Tamanan, Bondowoso.</p>
                     <img class="img-fluid mt-md-5 mt-4 img-dark-color" src="<?php echo base_url(); ?>assets/img/sign.png" alt=" ">
                 </div>
@@ -192,7 +190,7 @@ Author URL: http://w3layouts.com
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 grids-feature mt-md-0 mt-sm-5 mt-4">
-                    <div class="area-box active">
+                    <div class="area-box">
                         <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/sheep_160x160.jpg" alt=" ">
                         <h4><a href="#feature" class="title-head">Cetak Hasil</a></h4>
                         <p>Anda dapat mencetak hasil diagnosa yang muncul untuk memudahkan anda dalam merawat domba nantinya.</p>
