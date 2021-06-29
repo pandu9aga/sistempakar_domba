@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 $route['home']='Halaman/view';
-$route['landing'] = 'Konsultasi_control/landing';
+//$route['homes']='Halaman/homes';
+//$route['landing'] = 'Konsultasi_control/landing';
 $route['konsultasi'] = 'Konsultasi_control/pertanyaan';
 $route['cetak/(:any)'] = 'Konsultasi_control/cetak/$1';
 $route['hasil_diagnosis/(:any)'] = 'Konsultasi_control/hasil_diagnosis/$1';

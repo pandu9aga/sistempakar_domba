@@ -12,12 +12,19 @@ class Halaman extends CI_Controller {
 					$this->load->helper('date');
 					$this->load->library('pagination');
 			}
-
 	public function view()
 	{
 
 		$this->load->view('pages/static/header');
 		$this->load->view('pages/forms/home');
+		$this->load->view('pages/static/footer');
+
+	}
+	public function homes()
+	{
+
+		$this->load->view('pages/static/header');
+		$this->load->view('pages/forms/homes');
 		$this->load->view('pages/static/footer');
 
 	}
