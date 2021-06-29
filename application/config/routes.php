@@ -11,7 +11,7 @@ $route['hasil_diagnosis/(:any)'] = 'Konsultasi_control/hasil_diagnosis/$1';
 $route['tips'] = 'Konsultasi_control/tips';
 $route['petunjuk'] = 'Konsultasi_control/petunjuk';
 $route['tentang'] = 'Konsultasi_control/tentang';
-$route['default_controller'] ='Konsultasi_control/landing';
+$route['default_controller'] ='Halaman/view';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 

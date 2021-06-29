@@ -16,16 +16,15 @@
 
 
     <!-- Main content -->
-    <section class="content">
-      <div class="container"><link
-          href="//fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Teko:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet">
+      <link href="//fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <!-- //google-fonts -->
       <!-- Font-Awesome-Icons-CSS -->
       <link rel="stylesheet" href="<?php echo base_url(); ?>assets/industries/css/fontawesome-all.min.css">
       <!-- Template CSS Style link -->
       <link rel="stylesheet" href="<?php echo base_url(); ?>assets/industries/css/style-starter.css">
 
+
+        <br>
         <!-- banner section -->
         <section id="home" class="w3l-banner py-5">
             <div class="banner-image">
@@ -402,11 +401,6 @@
         <script src="<?php echo base_url(); ?>assets/industries/js/bootstrap.min.js"></script>
         <!-- //bootstrap-->
         <!-- //Js scripts -->
-
-      </div>
-    </section>
-
-
 
 
   <script type="text/javascript">
