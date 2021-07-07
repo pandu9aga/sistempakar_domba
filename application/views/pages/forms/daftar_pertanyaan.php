@@ -14,6 +14,108 @@
 
   <!-- Main content -->
   <section class="content">
+
+    <div class="container">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <style>
+        .right img {
+          transform: scale(1.20);
+          filter: brightness(50%);
+          transition: opacity 0.4s, transform 0.4s;
+        }
+
+        .right img:hover {
+          transform: scale(1.03);
+          filter: brightness(85%);
+        }
+        .carousel .item {
+          height: 230px;
+        }
+
+        .item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-height: 230px;
+        }
+        </style>
+
+        <div class="right">
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+            <div class="item active">
+              <img class="img-rounded" src="<?php echo base_url(); ?>assets/img/expert_system.jpg" alt="Expert System" style="width:100%;">
+              <div class="carousel-caption">
+                <h3>Sistem Pakar</h3>
+              </div>
+            </div>
+
+            <div class="item">
+              <img class="img-rounded" src="<?php echo base_url(); ?>assets/img/sheep.jpg" alt="Sheep" style="width:100%;">
+              <div class="carousel-caption">
+                <h3>Domba</h3>
+              </div>
+            </div>
+
+            <div class="item">
+              <img class="img-rounded" src="<?php echo base_url(); ?>assets/img/sheep_doctor.jpg" alt="Sheep Expert" style="width:100%;">
+              <div class="carousel-caption">
+                <h3>Doktor Hewan</h3>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+
+    <hr>
+    <!-- Left-aligned media object -->
+    <div class="media">
+      <div class="media-left">
+        <img src="<?php echo base_url(); ?>assets/img/logo_50x50.jpg" alt="doctor" class="media-object" style="width:60px">
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading">Sheep Expert System</h3>
+        <p>Sistem Pakar Diagnosa Penyakit Domba menggunakan Metode Backward Chaining berbasis WEB merupakan suatu sistem yang mendiagnosa penyakit melalui indikasi penyakit lalu muncul gejala yang dialami oleh Domba.
+          Dengan menggunakan sistem ini, peternak domba lebih gampang mengetahui penyakit yang dialami oleh hewan peliharannya tanpa harus menemui seorang Dokter dan Rumah Sakit</p>
+      </div>
+    <br>
+    </div>
+
+    <!-- Left-aligned media object -->
+    <div class="media">
+      <div class="media-left">
+        <img src="<?php echo base_url(); ?>assets/img/doctor.png" alt="doctor" class="media-object" style="width:60px">
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading">Diagnosa Domba</h3>
+        <p>Daftar pertanyaan ini disusun oleh seorang ahli berpengalaman dibidang penyakit domba yaitu drh. Pandu Tokoh Amukti.
+          Seorang dokter hewan yang beralamat di Perumahan Tamansari Indah Jl. Cendana 7 RT 15/06, Tamansari, Bondowoso.
+          Saat ini bekerja sebagai dokter hewan di Puskesmas Hewan Tamanan, Bondowoso.</p>
+      </div>
+    <hr>
+    </div>
+
+    <br>
+
     <div class="container">
     <div class="jawaban">
         <div class="row">
@@ -61,6 +163,8 @@
             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalmayor1" data-backdrop="static" data-keyboard="false">
               Mulai Pertanyaan
             </button>
+
+            <hr>
 
             <?php
             $no = 1;
@@ -206,100 +310,6 @@
             </form>
           </div>
         </div>
-
-
-        <hr>
-        <!-- Left-aligned media object -->
-        <div class="media">
-          <div class="media-left">
-            <img src="<?php echo base_url(); ?>assets/img/doctor.png" alt="doctor" class="media-object" style="width:60px">
-          </div>
-          <div class="media-body">
-            <h3 class="media-heading">Diagnosa Domba</h3>
-            <p>Daftar pertanyaan ini disusun oleh seorang ahli berpengalaman dibidang penyakit domba yaitu drh. Pandu Tokoh Amukti.
-              Seorang dokter hewan yang beralamat di Perumahan Tamansari Indah Jl. Cendana 7 RT 15/06, Tamansari, Bondowoso.
-              Saat ini bekerja sebagai dokter hewan di Puskesmas Hewan Tamanan, Bondowoso.</p>
-          </div>
-        <br>
-        </div>
-
-        <br>
-        <div class="container">
-          <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-              <li data-target="#myCarousel" data-slide-to="1"></li>
-              <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
-
-            <style>
-            .right img {
-              transform: scale(1.20);
-              filter: brightness(50%);
-              transition: opacity 0.4s, transform 0.4s;
-            }
-
-            .right img:hover {
-              transform: scale(1.03);
-              filter: brightness(85%);
-            }
-            </style>
-
-            <div class="right">
-              <!-- Wrapper for slides -->
-              <div class="carousel-inner">
-                <div class="item active">
-                  <img class="img-rounded" src="<?php echo base_url(); ?>assets/img/expert_system.jpg" alt="Expert System" style="width:100%;">
-                  <div class="carousel-caption">
-                    <h3>Sistem Pakar</h3>
-                  </div>
-                </div>
-
-                <div class="item">
-                  <img class="img-rounded" src="<?php echo base_url(); ?>assets/img/sheep_doctor.jpg" alt="Sheep Expert" style="width:100%;">
-                  <div class="carousel-caption">
-                    <h3>Doktor Hewan</h3>
-                  </div>
-                </div>
-
-                <div class="item">
-                  <img class="img-rounded" src="<?php echo base_url(); ?>assets/img/sheep.jpg" alt="Sheep" style="width:100%;">
-                  <div class="carousel-caption">
-                    <h3>Domba</h3>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- Left and right controls -->
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-              <span class="glyphicon glyphicon-chevron-left"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" data-slide="next">
-              <span class="glyphicon glyphicon-chevron-right"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-        </div>
-
-        <hr>
-        <!-- Left-aligned media object -->
-        <div class="media">
-          <div class="media-left">
-            <img src="<?php echo base_url(); ?>assets/img/logo_50x50.jpg" alt="doctor" class="media-object" style="width:60px">
-          </div>
-          <div class="media-body">
-            <h3 class="media-heading">Sheep Expert System</h3>
-            <p>Sistem Pakar Diagnosa Penyakit Domba menggunakan Metode Backward Chaining berbasis WEB merupakan suatu sistem yang mendiagnosa penyakit melalui indikasi penyakit lalu muncul gejala yang dialami oleh Domba.
-              Dengan menggunakan sistem ini, peternak domba lebih gampang mengetahui penyakit yang dialami oleh hewan peliharannya tanpa harus menemui seorang Dokter dan Rumah Sakit</p>
-          </div>
-        <br>
-        </div>
-
-
 
     </div>
     </div>
