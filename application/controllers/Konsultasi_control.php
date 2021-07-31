@@ -31,15 +31,9 @@ class Konsultasi_control extends CI_Controller
   }
 
   public function pertanyaan(){
-
     $data['pertanyaan'] = $this->Konsultasi_model->daftar_pertanyaan()->result();
+    $data['jumlah_pertanyaan'] = $this->Konsultasi_model->daftar_pertanyaan()->num_rows();
     $data['penyakit'] = $this->Konsultasi_model->get_penyakit()->result();
-
-    /*
-    foreach ($data['pertanyaan'] as $value) {
-      echo $value->kode;
-      echo $value->pertanyaan."<br>";
-    }*/
 
     $this->load->view('pages/static/header');
     $this->load->view('pages/forms/daftar_pertanyaan',$data);
@@ -47,20 +41,40 @@ class Konsultasi_control extends CI_Controller
 
   }
 
+  public function api_pertanyaan(){
+    $pertanyaan = $this->Konsultasi_model->daftar_pertanyaan()->result();
+    $penyakit = $this->Konsultasi_model->get_penyakit()->result();
+
+    /*
+    foreach ($data['pertanyaan'] as $value) {
+      echo $value->kode;
+      echo $value->pertanyaan."<br>";
+    }*/
+    $response = array(
+      'pertanyaan' => $pertanyaan,
+      'penyakit' => $penyakit
+    );
+
+    echo json_encode($response);
+  }
+
+  public function api_rule(){
+    $rule = $this->Konsultasi_model->get_rule()->result();
+
+    $response = array(
+      'rule' => $rule
+    );
+
+    echo json_encode($response);
+  }
+
   public function cek_diagnosa(){
     $data['waktu'] = $this->input->post('waktu');
     echo $data['waktu'];
-    foreach ($this->input->post('inp') as $key => $value) {
-      if ($value=="Ya") {
-        $ar_hasil[]=$key;
-      }
-    }
-
-    if ($ar_hasil==null) {
-      $ar_hasil[0] = "G0";
-    }
-
-    $data['hasil'] = implode(' ', $ar_hasil);
+    $hasil = $this->input->post('jawaban');
+    $arr_hasil = explode(",",$hasil);
+    $data['hasil'] = implode(" ",$arr_hasil);
+    echo $data['hasil'];
 
     $this->Konsultasi_model->tambah_riwayat($data);
 
@@ -75,7 +89,7 @@ class Konsultasi_control extends CI_Controller
   public function hasil_diagnosis(){
     $id = $this->uri->segment(2);
     $data['hasil'] = $this->Konsultasi_model->get_riwayatid($id)->result();
-    $data['pertanyaan'] = $this->Konsultasi_model->daftar_pertanyaan()->result();
+    $data['rule'] = $this->Konsultasi_model->get_rule()->result();
     $data['penyakit'] = $this->Konsultasi_model->get_penyakit()->result();
 
     $this->load->view('pages/static/header');
@@ -180,34 +194,35 @@ class Konsultasi_control extends CI_Controller
   public function cetak(){
     $id = $this->uri->segment(2);
     $data['hasil'] = $this->Konsultasi_model->get_riwayatid($id)->result();
-    $data['pertanyaan'] = $this->Konsultasi_model->daftar_pertanyaan()->result();
+    $data['rule'] = $this->Konsultasi_model->get_rule()->result();
     $data['penyakit'] = $this->Konsultasi_model->get_penyakit()->result();
 
     $this->load->view('pages/static/print_diagnosa',$data);
   }
 
-  public function tips(){
-    $data['penyakit']=$this->Konsultasi_model->daftar_penyakit();
+  public function cek_diagnosaold(){
+    $data['waktu'] = $this->input->post('waktu');
+    echo $data['waktu'];
+    foreach ($this->input->post('inp') as $key => $value) {
+      if ($value=="Ya") {
+        $ar_hasil[]=$key;
+      }
+    }
 
-    $this->load->view('pages/static/header');
-    $this->load->view('pages/forms/tips_perawatan',$data);
-    $this->load->view('pages/static/footer');
-  }
+    if ($ar_hasil==null) {
+      $ar_hasil[0] = "G0";
+    }
 
-  public function petunjuk(){
-    $this->load->view('pages/static/header');
-    $this->load->view('pages/forms/petunjuk');
-    $this->load->view('pages/static/footer');
-  }
+    $data['hasil'] = implode(' ', $ar_hasil);
 
-  public function tentang(){
-    $this->load->view('pages/static/header');
-    $this->load->view('pages/forms/tentang');
-    $this->load->view('pages/static/footer');
-  }
+    $this->Konsultasi_model->tambah_riwayat($data);
 
-  public function landing(){
-    $this->load->view('pages/static/landing');
+
+    $get = $this->Konsultasi_model->get_riwayat($data['waktu'])->result();
+    foreach ($get as $key) {
+      $id = $key->id_jawaban;
+    }
+    redirect(base_url('hasil_diagnosis/'.$id));
   }
 
 }

@@ -35,7 +35,7 @@ class Konsultasi_model extends CI_Model
 
   public function daftar_pertanyaan(){
     $this->db->select('*');
-    $this->db->from('tb_pertanyaan');
+    $this->db->from('tb_gejala');
     $query = $this->db->get();
     return $query;
   }
@@ -43,6 +43,13 @@ class Konsultasi_model extends CI_Model
   public function get_penyakit(){
     $this->db->select('*');
     $this->db->from('tb_penyakit');
+    $query = $this->db->get();
+    return $query;
+  }
+
+  public function get_rule(){
+    $this->db->select('*');
+    $this->db->from('tb_rule');
     $query = $this->db->get();
     return $query;
   }

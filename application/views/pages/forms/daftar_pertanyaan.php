@@ -132,155 +132,214 @@
             </div><!-- /.info-box -->
 
             <script>
-            function pencet(click_question,click_value,click_code) {
-              var nama_question = click_question;
-              var nama_value = click_value;
-              var nama_code = click_code;
+            var base_url = 'http://localhost/sistempakar_domba/'
+            var api_rule = base_url+'api_rule'
 
-              var label = document.createElement("label");
-              var t = document.createTextNode(nama_question);
-              label.appendChild(t);
+            let rule_list = []
+            let gejala_list = []
 
-              var input = document.createElement("input");
-              input.setAttribute("type", "text");
-              input.setAttribute("name", "inp["+nama_code+"]");
-              input.setAttribute("value", nama_value);
-              input.setAttribute("readonly", true);
+            fetch(api_rule)
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error(response.statusText);
+                    }
+                })
+                .then(data => {
+                    rule_list = data.rule;
+                });
 
-              var br = document.createElement("br");
 
-              var contain = document.createElement("div");
-              contain.appendChild(label);
-              contain.appendChild(br);
-              contain.appendChild(input);
+            function pencet(click_gejala) {
+              var kode_gejala = click_gejala
+              gejala_list.push(kode_gejala)
+              //console.log(gejala_list)
+              for (var i = 0; i < rule_list.length; i++) {
+                rule = rule_list[i].kode_gejala.split(" ")
+                merge = rule.concat(gejala_list)
+                let findDuplicates = arr => arr.filter((item, index) => arr.indexOf(item) != index)
+                duplicate = ([...new Set(findDuplicates(merge))])
+                if (JSON.stringify(duplicate) === JSON.stringify(rule)) {
+                  submitForm(duplicate)
+                }
+              }
+              function submitForm(jawaban) {
+                var form = document.createElement("form");
+                var element1 = document.createElement("input");
+                var element2 = document.createElement("input");
 
-              document.getElementById("hasil-jawaban").appendChild(contain);
+                var today = new Date();
+                var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+                var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                var dateTime = date+' '+time;
+
+                form.method = "POST";
+                form.action = base_url+'Konsultasi_control/cek_diagnosa';
+
+                element1.value=jawaban;
+                element1.name="jawaban";
+                form.appendChild(element1);
+
+                element2.value=dateTime;
+                element2.name="waktu";
+                form.appendChild(element2);
+
+                document.body.appendChild(form);
+
+                form.submit();
+              }
+            }
+            function pencet_last(click_gejala) {
+              var kode_gejala = click_gejala
+              gejala_list.push(kode_gejala)
+              //console.log(gejala_list)
+              for (var i = 0; i < rule_list.length; i++) {
+                rule = rule_list[i].kode_gejala.split(" ")
+                merge = rule.concat(gejala_list)
+                let findDuplicates = arr => arr.filter((item, index) => arr.indexOf(item) != index)
+                duplicate = ([...new Set(findDuplicates(merge))])
+                if (JSON.stringify(duplicate) === JSON.stringify(rule)) {
+                  submitForm(duplicate)
+                }
+              }
+              submitLast()
+              function submitForm(jawaban) {
+                var form = document.createElement("form");
+                var element1 = document.createElement("input");
+                var element2 = document.createElement("input");
+
+                var today = new Date();
+                var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+                var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                var dateTime = date+' '+time;
+
+                form.method = "POST";
+                form.action = base_url+'Konsultasi_control/cek_diagnosa';
+
+                element1.value=jawaban;
+                element1.name="jawaban";
+                form.appendChild(element1);
+
+                element2.value=dateTime;
+                element2.name="waktu";
+                form.appendChild(element2);
+
+                document.body.appendChild(form);
+
+                form.submit();
+              }
+              function submitLast() {
+                var form = document.createElement("form");
+                var element1 = document.createElement("input");
+                var element2 = document.createElement("input");
+
+                var today = new Date();
+                var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+                var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                var dateTime = date+' '+time;
+
+                form.method = "POST";
+                form.action = base_url+'Konsultasi_control/cek_diagnosa';
+
+                element1.value=gejala_list;
+                element1.name="jawaban";
+                form.appendChild(element1);
+
+                element2.value=dateTime;
+                element2.name="waktu";
+                form.appendChild(element2);
+
+                document.body.appendChild(form);
+
+                form.submit();
+              }
+            }
+            function lastNo() {
+              var form = document.createElement("form");
+              var element1 = document.createElement("input");
+              var element2 = document.createElement("input");
+
+              var today = new Date();
+              var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+              var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+              var dateTime = date+' '+time;
+
+              form.method = "POST";
+              form.action = base_url+'Konsultasi_control/cek_diagnosa';
+
+              element1.value=gejala_list;
+              element1.name="jawaban";
+              form.appendChild(element1);
+
+              element2.value=dateTime;
+              element2.name="waktu";
+              form.appendChild(element2);
+
+              document.body.appendChild(form);
+
+              form.submit();
             }
             </script>
 
-            <form name="form_pertanyaan" action="<?php echo base_url('Konsultasi_control/cek_diagnosa'); ?>" method="post">
+            <form name="form_pertanyaan">
 
-            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalmayor1" data-backdrop="static" data-keyboard="false">
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalpertanyaan1" data-backdrop="static" data-keyboard="false">
               Mulai Pertanyaan
             </button>
-
             <hr>
 
             <?php
             $no = 1;
             foreach ($pertanyaan as $p) {
-              $code = $p->kode;
-              $excode = explode("G",$code);
-
-              if ($p->mayor=="Y") {
               ?>
-
-              <div class="modal modal-default fade" id="modalmayor<?php echo $p->id_penyakit; ?>">
+              <div class="modal modal-default fade" id="modalpertanyaan<?php echo $no; ?>">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h4 class="modal-title"><?php echo $p->pertanyaan; ?></h4>
+                      <h4 class="modal-title"><?php echo $p->gejala; ?>?</h4>
                     </div>
-
-                    <?php
-                    foreach ($penyakit as $pykt) {
-                      $id_terakhir = $pykt->id_penyakit;
-                    }
-                    $nextcode = $p->id_penyakit+1;
-                    if ($nextcode>$id_terakhir) {
-                      $nextmodal = "#modalakhir";
-                    }else {
-                      $nextmodal = "#modalmayor".$nextcode;
-                    }
-                    ?>
-
                     <div class="modal-body">
                       <div class="center-block well">
                         <div class="text-center">
-                          <button type="button" class="btn btn-success btn-block" data-dismiss="modal" id="jwbnmayory<?php echo $no; ?>" name="jwbn<?php echo $no; ?>" onclick="pencet('<?php echo $p->pertanyaan; ?>','Ya','<?php echo $code; ?>')" data-toggle="modal" data-target="#modalminor<?php echo $p->id_penyakit; ?>-soal<?php echo $excode[1]+1; ?>" data-backdrop="static" data-keyboard="false">Ya</button>
+                          <button type="button" class="btn btn-success btn-block" data-dismiss="modal" id="jwby" onclick="<?php if ($jumlah_pertanyaan==$no) {echo "pencet_last('".$p->kode_gejala."')";}else {echo "pencet('".$p->kode_gejala."')";} ?>" name="jwby" data-toggle="modal" data-target="#modalpertanyaan<?php echo $no+1; ?>" data-backdrop="static" data-keyboard="false">Ya</button>
                           <br>
-                          <button type="button" class="btn btn-danger btn-block" data-dismiss="modal" id="jwbnmayort<?php echo $no; ?>" name="jwbn<?php echo $no; ?>" onclick="pencet('<?php echo $p->pertanyaan; ?>','Tidak','<?php echo $code; ?>')" data-toggle="modal" data-target="<?php echo $nextmodal; ?>" data-backdrop="static" data-keyboard="false">Tidak</button>
+                          <button type="button" class="btn btn-danger btn-block" data-dismiss="modal" id="jwbt" onclick="<?php if ($jumlah_pertanyaan==$no) {echo "lastNo()";}?>" name="jwbt" data-toggle="modal" data-target="#modalpertanyaan<?php echo $no+1; ?>" data-backdrop="static" data-keyboard="false">Tidak</button>
                         </div>
                       </div>
                     </div>
-
                   </div>
-                  <!-- /.modal-content -->
                 </div>
-                <!-- /.modal-dialog -->
               </div>
-
               <?php
-              }else {
-                foreach ($pertanyaan as $key) {
-                  if ($key->id_penyakit==$p->id_penyakit) {
-                    $end = $key->kode;
-                    $ends = explode("G",$end);
-                    $endsoal = $ends[1];
-                  }
-                }
-
-                if ($excode[1]!=$endsoal) {
-                ?>
-
-                <div class="modal modal-default fade" id="modalminor<?php echo $p->id_penyakit; ?>-soal<?php echo $excode[1]; ?>">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h4 class="modal-title"><?php echo $p->pertanyaan; ?></h4>
-                      </div>
-
-                      <div class="modal-body">
-                        <div class="center-block well">
-                          <div class="text-center">
-                            <button type="button" class="btn btn-success btn-block" data-dismiss="modal" id="jwbnminory<?php echo $excode[1]; ?>" name="jwbn<?php echo $no; ?>" onclick="pencet('<?php echo $p->pertanyaan; ?>','Ya','<?php echo $code; ?>')" data-toggle="modal" data-target="#modalminor<?php echo $p->id_penyakit; ?>-soal<?php echo $excode[1]+1; ?>" data-backdrop="static" data-keyboard="false">Ya</button>
-                            <br>
-                            <button type="button" class="btn btn-danger btn-block" data-dismiss="modal" id="jwbnminort<?php echo $excode[1]; ?>" name="jwbn<?php echo $no; ?>" onclick="pencet('<?php echo $p->pertanyaan; ?>','Tidak','<?php echo $code; ?>')" data-toggle="modal" data-target="#modalminor<?php echo $p->id_penyakit; ?>-soal<?php echo $excode[1]+1; ?>" data-backdrop="static" data-keyboard="false">Tidak</button>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                    <!-- /.modal-content -->
-                  </div>
-                  <!-- /.modal-dialog -->
-                </div>
-
-                <?php
-                }else {
-                ?>
-
-                <div class="modal modal-default fade" id="modalminor<?php echo $p->id_penyakit; ?>-soal<?php echo $excode[1]; ?>">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h4 class="modal-title"><?php echo $p->pertanyaan; ?></h4>
-                      </div>
-
-                      <div class="modal-body">
-                        <div class="center-block well">
-                          <div class="text-center">
-                            <button type="button" class="btn btn-success btn-block" data-dismiss="modal" id="jwbnminory<?php echo $excode[1]; ?>" name="jwbn<?php echo $no; ?>" onclick="pencet('<?php echo $p->pertanyaan; ?>','Ya','<?php echo $code; ?>')" data-toggle="modal" data-target="#modalakhir" data-backdrop="static" data-keyboard="false">Ya</button>
-                            <br>
-                            <button type="button" class="btn btn-danger btn-block" data-dismiss="modal" id="jwbnminort<?php echo $excode[1]; ?>" name="jwbn<?php echo $no; ?>" onclick="pencet('<?php echo $p->pertanyaan; ?>','Tidak','<?php echo $code; ?>')" data-toggle="modal" data-target="#modalakhir" data-backdrop="static" data-keyboard="false">Tidak</button>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                    <!-- /.modal-content -->
-                  </div>
-                  <!-- /.modal-dialog -->
-                </div>
-
-                <?php
-                }
-              }
-
               $no++;
-            } ?>
+            }
+            ?>
 
-            <div class="modal modal-default fade" id="modalakhir">
+            <script>
+            /*
+              const container = document.getElementById("container");
+              fetch('http://localhost/sistempakar_domba/api_pertanyaan')
+                  .then(response => {
+                      if (response.ok) {
+                          return response.json();
+                      } else {
+                          throw new Error(response.statusText);
+                      }
+                  })
+                  .then(data => {
+                      pertanyaan_list = data.pertanyaan;
+                      pertanyaan_list.forEach(obj => {
+                        let li = document.createElement("li");
+                        let node = document.createTextNode(obj.gejala);
+                        li.appendChild(node);
+                        container.appendChild(li);
+                      });
+                  });
+              */
+              </script>
+
+            <!--div class="modal modal-default fade" id="modalakhir">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -293,19 +352,17 @@
 
                   <div class="modal-footer">
                     <div class="pertanyaan">
-                      <input type="hidden" name="waktu" value="<?php echo date('Y-m-d H:i:s'); ?>">
+                      <input type="hidden" name="waktu" value="<php echo date('Y-m-d H:i:s'); ?>">
                     </div>
                     <button type="submit" class="btn btn-primary" name="button">Diagnosis</button>
-                    <a href="<?php echo base_url(); ?>konsultasi">
+                    <a href="<php //echo base_url(); ?>konsultasi">
                       <button type="button" class="btn btn-danger" name="button">Ulangi</button>
                     </a>
                   </div>
 
                 </div>
-                <!-- /.modal-content -->
               </div>
-              <!-- /.modal-dialog -->
-            </div>
+            </div-->
 
             </form>
           </div>
