@@ -15,7 +15,7 @@ class Halaman extends CI_Controller {
 	public function view()
 	{
 
-		$this->load->view('pages/static/header');
+		$this->load->view('pages/static/header1');
 		$this->load->view('pages/forms/home');
 		$this->load->view('pages/static/footer');
 

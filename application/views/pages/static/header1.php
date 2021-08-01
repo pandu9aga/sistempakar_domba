@@ -100,7 +100,7 @@
         </li>
         <li >
           <a href="<?php echo base_url(); ?>admin/login">
-            <i class="fa fa-sign-in"></i>
+            <i class="fa fa-sign-in-alt"></i>
             <span>Admin</span>
           </a>
         </li>

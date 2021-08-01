@@ -10803,19 +10803,19 @@ a:focus {
 }
 
 .bg-login-image {
-  background: url("http://localhost/sistempakar_domba/assets/img/logo_polije_600x800.png");
+  background: url("http://localhost/sistempakar_domba/assets/admin/img/logo.png");
   background-position: center;
   background-size: cover;
 }
 
 .bg-register-image {
-  background: url("http://localhost/sistempakar_domba/assets/img/logo_polije_600x800_2.png");
+  background: url("http://localhost/sistempakar_domba/assets/admin/img/logo.png");
   background-position: center;
   background-size: cover;
 }
 
 .bg-password-image {
-  background: url("http://localhost/sistempakar_domba/assets/img/logo_polije_600x800.png");
+  background: url("http://localhost/sistempakar_domba/assets/admin/img/logo.png");
   background-position: center;
   background-size: cover;
 }
