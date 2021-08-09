@@ -28,7 +28,7 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 }
 
 async function foo() {
-  var url= 'http://localhost/sistempakar_domba/admin/home/api';
+  var url= 'http://ta.mif-project.com/E31170392/admin/home/api';
   var result= await (await fetch(url)).json(); // or .json()
   return result;
 }

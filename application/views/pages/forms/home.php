@@ -100,7 +100,7 @@
                         <h3 class="text-bgs mb-md-3 mb-2">Pakar <span>Terpercaya</span></h3>
                         <h3 class="titlef-style"><span>drh.</span> Pandu Tokoh Amukti</h3>
                         <p class="ab-text mt-4 pt-lg-2">"Memelihara domba adalah hal yang gampang-gampang-susah sekaligus susah-susah-gampang, dengan adanya aplikasi ini semakin memudahkan para pelaku usaha peternakan domba lebih open minded terhadap kesehatan ternak. Semoga bermanfaat."</p>
-                        <p class="mt-4">Seorang dokter hewan yang beralamat di Perumahan Tamansari Indah Jl. Cendana 7 RT 15/06, Tamansari, Bondowoso. Saat ini bekerja sebagai dokter hewan di Puskesmas Tamanan, Bondowoso.</p>
+                        <p class="mt-4">Seorang dokter hewan yang beralamat di Perumahan Tamansari Indah Jl. Cendana 7 RT 15/06, Tamansari, Bondowoso. Saat ini bekerja sebagai dokter hewan di Puskeswan Tamanan, Bondowoso.</p>
                         <img class="img-fluid mt-md-5 mt-4 img-dark-color" src="<?php echo base_url(); ?>assets/img/sign.png" alt=" ">
                     </div>
                 </div>

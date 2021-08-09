@@ -61,9 +61,9 @@
                       <input type="password" class="form-control form-control-user" name="password" id="exampleInputPassword" placeholder="Password" required>
                     </div>
                     <p>
-                      Username : Admin
+                      Username : admin
                       <br>
-                      Password : Admin
+                      Password : admin
                     </p>
                     <button type="submit" class="btn btn-primary btn-user btn-block">
                       Login
