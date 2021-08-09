@@ -43,7 +43,7 @@
             </div>
             <div class="media-body">
               <p>
-                <b>SISTEM PAKAR DIAGNOSA PENYAKIT DOMBA MENGGUNAKAN METODE BACKWARD CHAINING BERBASIS WEB
+                <b>SISTEM PAKAR DIAGNOSA PENYAKIT DOMBA MENGGUNAKAN METODE FORWARD CHAINING BERBASIS WEB
                   </b>
                 </p>
               <p>Oleh: Wahyu Rama Fijayandi</p>

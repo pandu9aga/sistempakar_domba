@@ -60,7 +60,11 @@
                       <label for="password">Password</label>
                       <input type="password" class="form-control form-control-user" name="password" id="exampleInputPassword" placeholder="Password" required>
                     </div>
-                    <br>
+                    <p>
+                      Username : Admin
+                      <br>
+                      Password : Admin
+                    </p>
                     <button type="submit" class="btn btn-primary btn-user btn-block">
                       Login
                     </button>

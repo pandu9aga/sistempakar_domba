@@ -94,7 +94,7 @@
       </div>
       <div class="media-body">
         <h3 class="media-heading">Sheep Expert System</h3>
-        <p>Sistem Pakar Diagnosa Penyakit Domba menggunakan Metode Backward Chaining berbasis WEB merupakan suatu sistem yang mendiagnosa penyakit melalui indikasi penyakit lalu muncul gejala yang dialami oleh Domba.
+        <p>Sistem Pakar Diagnosa Penyakit Domba menggunakan Metode Forward Chaining berbasis WEB merupakan suatu sistem yang mendiagnosa penyakit melalui indikasi penyakit lalu muncul gejala yang dialami oleh Domba.
           Dengan menggunakan sistem ini, peternak domba lebih gampang mengetahui penyakit yang dialami oleh hewan peliharannya tanpa harus menemui seorang Dokter dan Rumah Sakit</p>
       </div>
     <br>
@@ -109,7 +109,7 @@
         <h3 class="media-heading">Diagnosa Domba</h3>
         <p>Daftar pertanyaan ini disusun oleh seorang ahli berpengalaman dibidang penyakit domba yaitu drh. Pandu Tokoh Amukti.
           Seorang dokter hewan yang beralamat di Perumahan Tamansari Indah Jl. Cendana 7 RT 15/06, Tamansari, Bondowoso.
-          Saat ini bekerja sebagai dokter hewan di Puskesmas Hewan Tamanan, Bondowoso.</p>
+          Saat ini bekerja sebagai dokter hewan di Puskesmas Tamanan, Bondowoso.</p>
       </div>
     <hr>
     </div>
